@@ -8,7 +8,7 @@ A quick minimal flutter onboarding
 Add following line in the `dependencies:` section of `pubspec.yaml` file:
 
 ```
-fancy_on_boarding: <latest_version>
+minimal_boarding: <latest_version>
 ```
 ### Import following class
 ```dart
