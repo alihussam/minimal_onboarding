@@ -10,9 +10,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<OnboardingPageModel> onboardingPages = [
-    OnboardingPageModel('images/aes_hands.png', 'Lorem ipsum ...'),
-    OnboardingPageModel('images/aes_hands.png', 'Lorem ipsum ...'),
-    OnboardingPageModel('images/aes_hands.png', 'Lorem ipsum ...'),
+    OnboardingPageModel('images/aes_hands.png',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at est rhoncus, posuere enim mollis, accumsan odio. '),
+    OnboardingPageModel('images/aes_hands1.jpg',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at est rhoncus, posuere enim mollis, accumsan odio. '),
+    OnboardingPageModel('images/aes_hands2.jpg',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at est rhoncus, posuere enim mollis, accumsan odio. '),
   ];
 
   @override

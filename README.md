@@ -1,8 +1,13 @@
 # Minimal Onboarding
 
 [![Version](https://img.shields.io/pub/v/minimal_onboarding.svg)](https://pub.dartlang.org/packages/minimal_onboarding)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/xsahil03x/fancy_on_boarding/blob/master/LICENSE)
 
 A quick minimal flutter onboarding
+
+### GIF
+<img src="./minimal_onboarding.gif" height="400" alt="GIF"/>
 
 ## Installation
 Add following line in the `dependencies:` section of `pubspec.yaml` file:

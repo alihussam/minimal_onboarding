@@ -60,6 +60,8 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
   Widget build(BuildContext context) {
     /* Create app bar */
     final _appBar = AppBar(
+      elevation: 0.0,
+      backgroundColor: Colors.transparent,
       title: StreamBuilder(
         stream: _streamController.stream,
         initialData: 0.0,

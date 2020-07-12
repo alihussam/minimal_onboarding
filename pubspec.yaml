@@ -1,6 +1,6 @@
 name: minimal_onboarding
-description: Flutter package for a quick minimal onboarding page
-version: 0.0.1
+description: A Flutter package for the purpose to create a quick and minimal onboarding screen. The package allows creating multiple pages for the onboarding screen. Each page has a description along with a picture asset in the middle of the screen. Onboarding screen is customizable enough to change button colors, text, and provide a custom function for each individual button on the screen.
+version: 0.0.2
 homepage: https://github.com/alihussam/minimal_onboarding
 
 environment:
