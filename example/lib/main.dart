@@ -10,11 +10,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<OnboardingPageModel> onboardingPages = [
-    OnboardingPageModel('images/aes_hands.png',
+    OnboardingPageModel('images/page1.png', 'Onboarding Page 1',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at est rhoncus, posuere enim mollis, accumsan odio. '),
-    OnboardingPageModel('images/aes_hands1.jpg',
+    OnboardingPageModel('images/page2.png', 'Onboarding Page 2',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at est rhoncus, posuere enim mollis, accumsan odio. '),
-    OnboardingPageModel('images/aes_hands2.jpg',
+    OnboardingPageModel('images/page3.png', 'Onboarding Page 3',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at est rhoncus, posuere enim mollis, accumsan odio. '),
   ];
 
@@ -24,6 +24,13 @@ class _MyAppState extends State<MyApp> {
       title: 'Minimal Onboarding example',
       home: MinimalOnboarding(
           onboardingPages: onboardingPages,
+          dotsDecoration: DotsDecorator(
+            activeColor: Color(0xFF4E67EB),
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
           onFinishButtonPressed: () => print('Onboarding finished')),
     );
   }

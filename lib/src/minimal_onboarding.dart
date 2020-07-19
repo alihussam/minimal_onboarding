@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:minimal_onboarding/src/onboarding_page.dart';
 import 'package:minimal_onboarding/src/onboarding_page_model.dart';
 
+/// Entry Point Class to create an onboarding page
 class MinimalOnboarding extends StatefulWidget {
   final List<OnboardingPageModel> onboardingPages;
   final VoidCallback onFinishButtonPressed;
@@ -14,7 +15,9 @@ class MinimalOnboarding extends StatefulWidget {
   final String nextPageButtonText;
   final bool showSkipButton;
   final Color color;
+  final DotsDecorator dotsDecoration;
   static const _defaultColor = Color(0xFF4E67EB);
+  static const _dotsDecoration = DotsDecorator(activeColor: _defaultColor);
 
   MinimalOnboarding({
     @required this.onboardingPages,
@@ -26,6 +29,7 @@ class MinimalOnboarding extends StatefulWidget {
     this.nextPageButtonText = 'Next',
     this.showSkipButton = true,
     this.color = _defaultColor,
+    this.dotsDecoration = _dotsDecoration,
   }) : assert(onboardingPages.length != 0 && onFinishButtonPressed != null);
 
   @override
@@ -58,7 +62,7 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
 
   @override
   Widget build(BuildContext context) {
-    /* Create app bar */
+    // create app bar
     final _appBar = AppBar(
       elevation: 0.0,
       backgroundColor: Colors.transparent,
@@ -69,7 +73,7 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
           return DotsIndicator(
             dotsCount: widget.onboardingPages.length,
             position: snapshot.data,
-            decorator: DotsDecorator(activeColor: widget.color),
+            decorator: widget.dotsDecoration,
           );
         },
       ),
@@ -83,7 +87,7 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
           : [],
     );
 
-    /* Create bottom navigation bar */
+    // Create bottom navigation bar
     final _bottomNavigation = Container(
       height: 60,
       child: Row(
@@ -95,7 +99,7 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
               stream: _streamController.stream,
               initialData: 0.0,
               builder: (context, snapshot) {
-                if (snapshot.data == 0.0) return Container();
+                if (snapshot.data < 1) return Container();
                 return FlatButton(
                   child: Text(widget.previousPageButtonText),
                   onPressed: previousPage,
@@ -114,15 +118,14 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(18.0))),
                     child: Text(
-                      snapshot.data == widget.onboardingPages.length - 1
+                      snapshot.data > widget.onboardingPages.length - 2
                           ? widget.finishButtonText
                           : widget.nextPageButtonText,
                       style: TextStyle(color: Colors.white),
                     ),
-                    onPressed:
-                        snapshot.data == widget.onboardingPages.length - 1
-                            ? widget.onFinishButtonPressed
-                            : nextPage);
+                    onPressed: snapshot.data > widget.onboardingPages.length - 2
+                        ? widget.onFinishButtonPressed
+                        : nextPage);
               },
             ),
           ),
@@ -130,7 +133,7 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
       ),
     );
 
-    /* Create body */
+    // create body
     final _body = Container(
       child: PageView(
           controller: _pageController,
@@ -140,8 +143,12 @@ class _MinimalOnboardingState extends State<MinimalOnboarding> {
                   OnboardingPage(widget.onboardingPages.elementAt(index)))),
     );
 
-    /* Return main body */
+    // build and return main body
     return Scaffold(
-        appBar: _appBar, bottomNavigationBar: _bottomNavigation, body: _body);
+      backgroundColor: Colors.white,
+      appBar: _appBar,
+      bottomNavigationBar: _bottomNavigation,
+      body: _body,
+    );
   }
 }

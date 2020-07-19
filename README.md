@@ -7,7 +7,7 @@
 A quick minimal flutter onboarding
 
 ### GIF
-<img src="./minimal_onboarding.gif" height="400" alt="GIF"/>
+<img src="https://raw.github.com/alihussam/minimal_onboarding/master/minimal_onboarding.gif" height="400" alt="GIF"/>
 
 ## Installation
 Add following line in the `dependencies:` section of `pubspec.yaml` file:
@@ -24,9 +24,9 @@ import 'package:minimal_boarding/minimal_boarding.dart';
 
 ```dart
  final onboardingPages = [
-    OnboardingPageModel( 'assets/hotels.png', 'Lorem ipsum ...'),
-    OnboardingPageModel( 'assets/hotels.png', 'Lorem ipsum ...'),
-    OnboardingPageModel( 'assets/hotels.png', 'Lorem ipsum ...'),
+    OnboardingPageModel( 'assets/hotels1.png', 'Title 1', 'Lorem ipsum ...'),
+    OnboardingPageModel( 'assets/hotels2.png', 'Title 2', 'Lorem ipsum ...'),
+    OnboardingPageModel( 'assets/hotels3.png', 'Title 3', 'Lorem ipsum ...'),
 ];
 ```
 
@@ -37,6 +37,13 @@ import 'package:minimal_boarding/minimal_boarding.dart';
     return Scaffold(
       body: MinimalBoarding(
         onboardingPages: onboardingPages,
+        dotsDecoration: DotsDecorator(
+            activeColor: Color(0xFF4E67EB),
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+        ),
         onFinishButtonPressed: () =>
             Navigator.of(context).pushReplacementNamed('/home'),
         onSkipButtonPressed: () =>
@@ -44,6 +51,12 @@ import 'package:minimal_boarding/minimal_boarding.dart';
       ),
     );
   }
+```
+
+# Dependencies
+Minimal Onboarding depends on the use of following package(s):
+```
+dots_indicator: 1.2.0
 ```
 
 # License
